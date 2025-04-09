@@ -1,0 +1,2 @@
+# Globbing simple
+ls *.sh

@@ -1,0 +1,90 @@
+- **Slide 0 : Objectif de la session 1**
+  - Comprendre les bases de Bash et son rôle dans l'interaction avec le système d'exploitation.
+  - Explorer les avantages de l'utilisation de Bash sous Windows avec WSL.\\n
+  - Comparer Bash avec d'autres shells pour mieux apprécier ses avantages
+- **Slide 1 : Intro : composants d’un OS (kernel, librairies, système de fichiers, ...)**
+  - Shell vs Terminal
+    - Shell : sh, bash, zsh, dash, bzh, csh, ksh, …
+    - Terminal : console VT, xterm, PuTTY, cmd.exe, Windows Terminal, Warp.dev, Tabby.sh
+  - Un **shell** est un interpréteur de commandes qui permet à l'utilisateur d'interagir avec le système d'exploitation en exécutant des commandes. Il peut être intégré dans un terminal ou utilisé comme interface de script.
+  - Un **terminal**, en revanche, est une interface matérielle ou logicielle qui permet à l'utilisateur d'entrer des commandes et de voir les résultats. Il sert de fenêtre pour interagir avec le shell.
+  - En résumé, le shell traite les commandes, tandis que le terminal est l'interface où ces commandes sont saisies et affichées.
+- **Slide 2 : Qu’est-ce que Bash ?**
+  - Bash ou Bourne Again Shell est un interpréteur de commande.
+    - Bash, a été créé par Brian Fox dans le but de remplacer le Bourne Shell (sh) tout en ajoutant des fonctionnalités supplémentaires issues d'autres shells comme le C shell (csh) et le Korn shell (ksh). Le développement de Bash a commencé en 1989, et il a été publié pour la première fois comme logiciel libre.
+- Bash a été conçu pour être compatible avec le shell Bourne tout en offrant des améliorations et des fonctionnalités modernes. Il est rapidement devenu populaire en raison de sa flexibilité et de sa capacité à être utilisé à la fois comme interpréteur de commandes interactif et comme langage de script pour l'automatisation des tâches.
+- Au fil des années, Bash a continué d'évoluer, intégrant de nouvelles fonctionnalités et améliorations. Il est devenu le shell par défaut pour de nombreuses distributions Linux et est largement utilisé dans les environnements Unix
+  - Permet d'écrire et d'exécuter des instructions sous forme de lignes de commandes
+  - Elément central qui permet d’interagir directement avec le système d'exploitation
+  - Permet entre autres de naviguer dans les fichiers, exécuter des programmes, gérer les processus, automatiser des taches via des scripts etc...
+  - C'est une interface entre l'utilisateur et le noyau du système
+- **Slide 3 : Pourquoi utiliser Bash sous Windows ?**
+  - Exécuter des commandes Linux nativement sur Windows
+    - Fini les VM et dual-boot ! Avec WSL 2, tu obtiens un vrai noyau Linux intégré à Windows.
+    - Tu peux utiliser les commandes grep, awk, sed, et bien d’autres sans bidouillage ou powershell bizarre
+  - Développement web & DevOps ultra-efficace
+    - Les serveurs en production tournent sous Linux. **Pourquoi ne pas coder directement dans l’environnement cible ?**
+    - Le shell (& Bash) est **indispensable** pour gérer **Docker, Kubernetes, Terraform et Ansible**, qui sont **les standards du DevOps moderne**
+  - Git & Gestion des projets sans prise de tête
+    - Git est conçu pour Linux. Avec Bash, **fini les problèmes d’encodage et de permissions** qui rendent fou sous Windows
+    - Utilisation simplifiée de ssh, rsync, scp et autres outils réseau directement sous Windows. Fini la galère avec le format de vos clés Privés/publiques
+  - Automatisation et scripting ultra-puissants
+    - Contrairement à PowerShell, Bash est **léger, rapide et ultra-répandu**.
+    - Il permet d’automatiser **toutes** les tâches de développement :
+      - Générer des fichiers, traiter des logs, interagir avec des API…
+      - Écrire des scripts réutilisables pour simplifier ton workflow.
+  - Travailler comme un vrai dev full-stack
+    - **Les développeurs Linux ont un avantage compétitif** : savoir utiliser Bash est **une compétence clé** dans le monde pro.
+    - Les grandes entreprises tech (Google, Meta, Amazon, etc.) travaillent en Bash
+- **Slide 4 : Comparaison avec d’autres shells – Pourquoi Bash est le choix ultime ?**
+  - Bash vs PowerShell (Windows)
+    - **PowerShell** est puissant pour l’administration Windows, mais… **qui veut manipuler des objets JSON dans une ligne de commande ?**
+    - Bash est **simple, direct et efficace**, sans la complexité inutile des objets PowerShell.
+    - **Exemple concret** : Comparons une commande pour afficher les fichiers .txt d’un dossier :
+      - **PowerShell** : Get-ChildItem -Path . -Filter \*.txt
+      - **Bash** : ls \*.txt (clair et rapide !)
+  - Bash vs Zsh (Z Shell)
+    - **Zsh** améliore Bash avec des fonctionnalités interactives (auto-suggestions, correction automatique…).
+    - **Bash est la base de tout !** Une fois maîtrisé, passer à Zsh est **un jeu d’enfant**.
+    - Présent sur MacOS depuis quelques années (Catalina)
+  - Pour résumé :
+    - Connaitre Bash : c'est la base, une fois maitrisé, il n'y aura pas de problèmes pour en maitriser un autre
+- **Slide 5 : Bash sous Windows avec WSL – Le meilleur des deux mondes**
+  - WSL : Linux sous Windows sans VM ni dual-boot
+    - Avant, pour utiliser Bash sous Windows, **il fallait une machine virtuelle lourde ou un double démarrage**.
+    - Maintenant, avec **WSL (Windows Subsystem for Linux)**, **tu exécutes un vrai noyau Linux directement dans Windows**.
+    - **Ça veut dire ?** Tous tes outils Linux préférés (git, ssh, curl, vim, docker\*) **marchent nativement** !
+  - WSL 1 vs WSL 2 – Pourquoi c’est une révolution ?
+
+| 🆚  | WSL 1 | WSL 2 |
+| --- | --- | --- |
+| Technologie | Traduit les appels Linux en appels Windows | Traduit les appels Linux en appels Windows |
+| Performance | Plus lent pour les I/O | Beaucoup plus rapide |
+| Accès aux fichiers | Accès plus rapide aux fichiers Windows | Compatible avec toutes les apps Linux |
+| Compatibilité Docker | Limitée | Peu fonctionner parfaitement\* |
+
+- - **Architecture** :
+        - WSL2 utilise une machine virtuelle légère basée sur un noyau Linux complet, contrairement à WSL1 qui traduisait les appels système Linux en appels Windows.
+        - Il repose sur une technologie de virtualisation intégrée à Windows, utilisant un sous-système Hyper-V pour gérer la virtualisation.
+    - **Virtualisation** :
+      - WSL2 utilise un noyau Linux léger et optimisé qui fonctionne dans une machine virtuelle avec un sous-ensemble minimal de fonctionnalités.
+      - La virtualisation est gérée par un hyperviseur intégré à Windows, permettant une exécution rapide et efficace des applications Linux.
+    - **Performance** :
+      - Grâce à l'utilisation d'un véritable noyau Linux, WSL2 offre une compatibilité et des performances accrues par rapport à WSL1, notamment pour les applications nécessitant un accès direct au noyau.
+      - Les opérations de fichiers sont plus rapides grâce à l'utilisation d'un système de fichiers virtuel optimisé.
+    - **Intégration** :
+      - WSL2 permet une intégration transparente entre les environnements Windows et Linux, permettant d'exécuter des commandes Linux directement depuis Windows et vice versa.
+      - Les applications Linux peuvent accéder aux ressources matérielles et réseau de l'hôte Windows.
+    - Les limites de WSL2 :
+      - Accès aux fichiers Windows depuis Linux plus lent que l’inverse
+        - WSL2 fonctionne avec un disque virtuel au format **ext4** pour stocker les fichiers Linux.
+        - Accéder aux fichiers Windows (/mnt/c) depuis WSL2 est **beaucoup plus lent** que l'accès aux fichiers Linux
+      - Performances réseau parfois instables, **WSL2 utilise une VM**, ce qui ajoute une couche de virtualisation pour le réseau.
+      - WSL2 a une **IP différente de celle de Windows**, ce qui peut poser problème pour certains services.
+      - Les ports exposés ne sont **pas toujours accessibles depuis Windows**.
+      - WSL2 est compatible avec Docker, mais il **n’a pas de support natif des modules de noyau Linux** (iptables, aufs et autres modules ne fonctionnent pas toujours).
+        - **Docker Desktop for Windows** intègre un mode spécial **WSL2**
+- **Slide 6 : Résumé de la session**
+  - Bash est un Shell puissant et incontournable pour interagir avec Linux
+  - Il est utilisé et présent dans la plupart des distributions Linux
+  - Grace à WSL, nous pouvons utiliser Bash sous Windows et tirer parti des outils Linux sans quitter votre environnement habituel
