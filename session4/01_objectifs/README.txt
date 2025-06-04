@@ -1,0 +1,1 @@
+Cette session couvre : processus, redirection, pipes, statut de sortie et outils utiles en Bash.

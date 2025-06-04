@@ -1,0 +1,3 @@
+INFO: démarrage
+ERREUR: échec de connexion
+INFO: tâche terminée

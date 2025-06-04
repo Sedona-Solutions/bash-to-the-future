@@ -35,7 +35,6 @@ Le saviez-vous ? La commande ls vient de 'list segments', et elle est dérivée 
 
 ### 🎤 Slide 4 – Commandes essentielles (2/2)
 
-On continue avec quelques commandes **un peu plus avancées**, mais tout aussi indispensables :
 
 - cat : pour afficher le contenu d’un fichier
 - less : pour lire un fichier page par page
